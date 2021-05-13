@@ -1,3 +1,20 @@
 #!/usr/bin/env ruby
 
-TheWorldOfCrypto::CLI.new.call 
+#require 'nokogiri'
+#require 'open-uri'
+#site = "https://coinmarketcap.com/"
+
+#doc = Nokogiri::HTML(open(site))
+#puts doc
+#result = doc.css("table.cmc-table.cmc-table___11lFC.cmc-table-homepage___2_guh tr")
+#puts result.count
+
+#result.each do |r|
+ #   puts r.css('p.sc-1eb5slv-0.iJjGCS').text.strip
+#end 
+
+#"Finished running code"
+
+require_relative '../lib/the_world_of_crypto'
+
+Adivsor.new.greeting
