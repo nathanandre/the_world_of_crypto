@@ -61,6 +61,14 @@ class Adivsor
         @currencies.each_with_index do |currency, index| 
             puts "#{index + 1}. #{currency}"
         end 
-        gets.to_i   
+        user_choice = gets.to_i
+        if user_choice.between?(1, 10)
+            #@currencies.detect {|list_choice| list_choice == @currencies.index + 1}
+            chosen_currency = @currencies[user_choice - 1] 
+                #binding.pry
+            #end 
+            puts "Great choice! Let's learn more about #{chosen_currency}!"
+        end 
     end 
 end 
+
