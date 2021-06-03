@@ -34,7 +34,11 @@ class Adivsor
 
     def get_currencies
         # currencies to be scrapped 
-        @currencies = ['bitcoin', 'ethereum', 'binance coin', 'dogecoin', 'xrp', 'thether', 'cardano', 'polkadot', 'uniswap','litecoin']
+        #Crypto.new("bitcoin")
+        #Crypto.new("xrp")
+        @currencies = Crypto.all 
+        #binding.pry 
+        #['bitcoin', 'ethereum', 'binance coin', 'dogecoin', 'xrp', 'thether', 'cardano', 'polkadot', 'uniswap','litecoin']
     end 
 
     def coin_valid? 
@@ -59,7 +63,7 @@ class Adivsor
         # if the user chooses the option to view list of currencies to choose from 
         puts "\nSelect the currency you would like to learn more about by typing it's corresponding number.\n"
         @currencies.each_with_index do |currency, index| 
-            puts "#{index + 1}. #{currency}"
+            puts "#{index + 1}. #{currency.name}"
         end 
         user_choice = gets.to_i
         if user_choice.between?(1, 10)
@@ -67,7 +71,7 @@ class Adivsor
             chosen_currency = @currencies[user_choice - 1] 
                 #binding.pry
             #end 
-            puts "Great choice! Let's learn more about #{chosen_currency}!"
+            puts "Great choice! Let's learn more about #{chosen_currency.name}!"
         end 
     end 
 end 
