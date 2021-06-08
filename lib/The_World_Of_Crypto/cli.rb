@@ -44,7 +44,8 @@ class Adivsor
     def coin_valid? 
         coin = gets.strip 
         get_currencies
-        if @currencies.include?(coin.downcase) == true 
+        if @currencies.find {|currency| currency.name == coin}
+            #@currencies.include?(coin.downcase) == true 
             puts "\nGreat choice! Let's learn more about #{coin}!\n"
         else 
             puts "\nWhoops! We can't find that one. Check your spelling or search for another.\n"
@@ -66,7 +67,7 @@ class Adivsor
             puts "#{index + 1}. #{currency.name}"
         end 
         user_choice = gets.to_i
-        if user_choice.between?(1, 10)
+        if user_choice.between?(1, 25)
             #@currencies.detect {|list_choice| list_choice == @currencies.index + 1}
             chosen_currency = @currencies[user_choice - 1] 
                 #binding.pry
