@@ -16,7 +16,7 @@ class Adivsor
         choice = gets.to_i 
         if choice == 1 
             search_currency 
-            coin_valid? 
+            #coin_valid? 
         else
             choice == 2
             get_currencies
@@ -26,7 +26,7 @@ class Adivsor
 
     def search_currency
         puts "\nType in the name of the coin you would like to search below!\n"
-        #coin_valid? 
+        coin_valid? 
         #take-in a usuers search and compare it to the the currencies that are in the array of currencies stores in array.
         #If that currencies is stored in the array it will show that currency's "home page". 
         #If the currency is not found user will be asked to check spelling or try a different currency. 
@@ -44,7 +44,7 @@ class Adivsor
     def coin_valid? 
         coin = gets.strip 
         get_currencies
-        if @currencies.find {|currency| currency.name == coin}
+        if @currencies.find {|currency| currency.name.downcase == coin.downcase}
             #@currencies.include?(coin.downcase) == true 
             puts "\nGreat choice! Let's learn more about #{coin}!\n"
         else 
