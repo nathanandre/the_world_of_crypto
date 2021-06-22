@@ -47,6 +47,7 @@ class Adivsor
         if @currencies.find {|currency| currency.name.downcase == coin.downcase}
             #@currencies.include?(coin.downcase) == true 
             puts "\nGreat choice! Let's learn more about #{coin}!\n"
+            #currency_homepage
         else 
             puts "\nWhoops! We can't find that one. Check your spelling or search for another.\n"
         end 
@@ -70,10 +71,20 @@ class Adivsor
         if user_choice.between?(1, 25)
             #@currencies.detect {|list_choice| list_choice == @currencies.index + 1}
             chosen_currency = @currencies[user_choice - 1] 
+            Scraper.scrape_about(chosen_currency)
                 #binding.pry
             #end 
             puts "Great choice! Let's learn more about #{chosen_currency.name}!"
+            puts chosen_currency.about 
+            #currency_homepage
         end 
+    end
+    
+    def currency_homepage
+        #display the about section of the chosen currency
+        #display other attributes about the currency for the user to choos from 
+        #if the user is interested in this currency allow it to be saved and later returned
+        #can also go back to original screen 
     end 
 end 
 
