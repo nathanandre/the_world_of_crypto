@@ -11,3 +11,5 @@ Classes
     - Currency 
     - CLI (Advisor)
     - Scrapper (Analyst) 
+
+    

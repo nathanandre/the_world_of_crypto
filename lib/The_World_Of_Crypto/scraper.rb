@@ -18,4 +18,10 @@ class Scraper
         #binding.pry
         coin.about = doc.css("div.sc-2qtjgt-0 div p:first-of-type").text
     end 
+
+    def self.scrape_search_about(searched_coin)
+        doc = Nokogiri::HTML(open("https://coinmarketcap.com/currencies/#{searched_coin.name.gsub(/" "/, '-')}/")) 
+        #binding.pry
+        searched_coin.about = doc.css("div.sc-2qtjgt-0 div p:first-of-type").text
+    end 
 end 
