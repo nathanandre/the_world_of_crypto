@@ -47,6 +47,7 @@ class Adivsor
         chosen_currency = @currencies.find {|currency| currency.name.downcase == coin.downcase}
         if chosen_currency 
             display_chosen_coin(chosen_currency)
+            whats_next?
         else 
             puts "\nWhoops! We can't find that one. Check your spelling or search for another.\n"
         end 
@@ -71,6 +72,7 @@ class Adivsor
             #@currencies.detect {|list_choice| list_choice == @currencies.index + 1}
             chosen_currency = @currencies[user_choice - 1] 
             display_chosen_coin(chosen_currency)
+            whats_next?
             #currency_homepage
         end 
     end
@@ -81,10 +83,27 @@ class Adivsor
             #end 
             puts "Great choice! Let's learn more about #{chosen_currency.name}!"
             puts chosen_currency.about 
+            #whats_next?
         #display the about section of the chosen currency
         #display other attributes about the currency for the user to choos from 
         #if the user is interested in this currency allow it to be saved and later returned
         #can also go back to original screen 
     end 
 end 
+
+def whats_next?
+    puts "\nWould you like to view more coins?\n"
+    input = gets.strip.downcase 
+    case input 
+    when "yes"
+        view_currencies 
+    when "no"
+        exit_program 
+    end
+end
+
+def exit_program
+    puts "\nThanks for visitng The World Of Crypto! See you soon!\n"
+end 
+
 
